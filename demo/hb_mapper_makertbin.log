@@ -1,0 +1,233 @@
+2022-11-06 17:23:37,741 file: hb_mapper.py func: hb_mapper line No: 114 Start hb_mapper....
+2022-11-06 17:23:37,741 file: hb_mapper.py func: hb_mapper line No: 115 log will be stored in /home/xcsong/workspace/toolchain_pkg/demo/hb_mapper_makertbin.log
+2022-11-06 17:23:37,741 file: hb_mapper.py func: hb_mapper line No: 116 hbdk version 3.37.2
+2022-11-06 17:23:37,742 file: hb_mapper.py func: hb_mapper line No: 117 horizon_nn version 0.14.0
+2022-11-06 17:23:37,742 file: hb_mapper.py func: hb_mapper line No: 118 hb_mapper version 1.9.9
+2022-11-06 17:23:37,742 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 628 Start Model Convert....
+2022-11-06 17:23:37,745 file: mapper_conf_parser.py func: mapper_conf_parser line No: 853 Using abs path /home/xcsong/workspace/toolchain_pkg/demo/demo.onnx
+2022-11-06 17:23:37,746 file: mapper_conf_parser.py func: mapper_conf_parser line No: 140 validating model_parameters...
+2022-11-06 17:23:37,746 file: mapper_conf_parser.py func: mapper_conf_parser line No: 247 User input 'log_level' deleted，Please do not use this parameter again
+2022-11-06 17:23:37,747 file: mapper_conf_parser.py func: mapper_conf_parser line No: 853 Using abs path /home/xcsong/workspace/toolchain_pkg/demo/hb_makertbin_output
+2022-11-06 17:23:37,747 file: mapper_conf_parser.py func: mapper_conf_parser line No: 154 validating model_parameters finished
+2022-11-06 17:23:37,747 file: mapper_conf_parser.py func: mapper_conf_parser line No: 158 validating input_parameters...
+2022-11-06 17:23:37,747 file: helper.py func: helper line No: 124 Model input names: ['in']
+2022-11-06 17:23:37,747 file: mapper_conf_parser.py func: mapper_conf_parser line No: 286 input num is set to 1 according to input_names
+2022-11-06 17:23:37,747 file: mapper_conf_parser.py func: mapper_conf_parser line No: 169 validating input_parameters finished
+2022-11-06 17:23:37,747 file: mapper_conf_parser.py func: mapper_conf_parser line No: 173 validating calibration_parameters...
+2022-11-06 17:23:37,747 file: mapper_conf_parser.py func: mapper_conf_parser line No: 853 Using abs path /home/xcsong/workspace/toolchain_pkg/demo/calibration_data
+2022-11-06 17:23:37,748 file: mapper_conf_parser.py func: mapper_conf_parser line No: 189 validating calibration_parameters finished
+2022-11-06 17:23:37,748 file: mapper_conf_parser.py func: mapper_conf_parser line No: 193 validating custom_op...
+2022-11-06 17:23:37,748 file: mapper_conf_parser.py func: mapper_conf_parser line No: 766 custom_op does not exist, skipped
+2022-11-06 17:23:37,748 file: mapper_conf_parser.py func: mapper_conf_parser line No: 199 validating custom_op finished
+2022-11-06 17:23:37,748 file: mapper_conf_parser.py func: mapper_conf_parser line No: 202 validating compiler_parameters...
+2022-11-06 17:23:37,748 file: mapper_conf_parser.py func: mapper_conf_parser line No: 208 validating compiler_parameters finished
+2022-11-06 17:23:37,748 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 54 Dump config:
+2022-11-06 17:23:37,748 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 55 calibration_parameters:
+  cal_data_dir: ./calibration_data/
+  calibration_type: default
+  max_percentile: 1.0
+  preprocess_on: false
+compiler_parameters:
+  compile_mode: latency
+  core_num: 1
+  debug: false
+  optimize_level: O3
+input_parameters:
+  input_layout_rt: NCHW;
+  input_layout_train: NCHW;
+  input_name: in
+  input_shape: 1x30x20x10;
+  input_space_and_range: ''
+  input_type_rt: featuremap;
+  input_type_train: featuremap;
+  norm_type: no_preprocess;
+model_parameters:
+  layer_out_dump: false
+  log_level: debug
+  march: bernoulli2
+  onnx_model: /home/xcsong/workspace/toolchain_pkg/demo/demo.onnx
+  output_model_file_prefix: demo
+  working_dir: ./hb_makertbin_output
+
+2022-11-06 17:23:37,751 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 61 input 'in' : original model shape: [1, 30, 20, 10]
+2022-11-06 17:23:37,751 file: loader.py func: loader line No: 44 *******************************************
+2022-11-06 17:23:37,751 file: loader.py func: loader line No: 45 First calibration picture name: 0.bin
+2022-11-06 17:23:37,751 file: loader.py func: loader line No: 47 First calibration picture md5:
+2022-11-06 17:23:37,762 file: loader.py func: loader line No: 51 *******************************************
+2022-11-06 17:23:37,762 file: loader.py func: loader line No: 125 created RawImageDirLoader of shape:[30, 20, 10]
+2022-11-06 17:23:37,762 file: loader.py func: loader line No: 130 Read raw file: /home/xcsong/workspace/toolchain_pkg/demo/calibration_data/0.bin
+2022-11-06 17:23:37,763 file: tool_utils.py func: tool_utils line No: 336 calibration data shape: (1, 30, 20, 10)
+2022-11-06 17:23:37,764 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 617 call build params:
+ {'march': 'bernoulli2', 'debug_mode': False, 'save_model': True, 'name_prefix': 'demo', 'input_dict': {'in': {'input_shape': [1, 30, 20, 10], 'original_input_layout': 'NCHW'}}, 'cali_dict': {'calibration_type': 'default', 'calibration_data': {'in': array([[[[ 0.6411608 ,  0.3696602 ,  0.55536467, ..., -1.6418648 ,
+          -0.37000087,  1.2750387 ],
+         [-0.9289167 , -0.00807896,  0.67568153, ..., -0.13494365,
+          -0.226183  ,  1.4363155 ],
+         [ 0.0120782 ,  0.35575685,  0.03629145, ..., -2.296895  ,
+          -1.9573028 , -1.1132233 ],
+         ...,
+         [ 0.12842555, -0.588034  , -0.08604743, ..., -0.18164904,
+           0.30094188, -0.10710477],
+         [-0.02481253,  0.19024059,  0.2264198 , ..., -0.07481699,
+          -0.6612749 ,  0.3676138 ],
+         [ 0.18270525,  1.5458175 , -0.40168345, ...,  1.7708944 ,
+           0.25055414, -0.30553252]],
+
+        [[ 0.08615766, -0.6382336 , -1.3957651 , ..., -0.94960934,
+          -0.10978862, -0.2769501 ],
+         [-0.08103067, -1.5266571 , -0.9047861 , ...,  0.9303835 ,
+          -0.5806038 ,  1.7462987 ],
+         [-2.8097644 ,  0.12852563,  0.21748412, ...,  1.673503  ,
+           2.0763936 , -0.5837985 ],
+         ...,
+         [ 0.9681719 , -0.8909437 ,  1.1839772 , ..., -0.7483195 ,
+          -0.5807561 , -0.41434085],
+         [ 1.1305423 ,  0.40207094, -0.90964013, ...,  0.18507464,
+           0.57176316, -0.1809966 ],
+         [ 0.50494266, -1.4700676 ,  1.0198243 , ..., -0.7646261 ,
+          -1.0159049 , -2.1646671 ]],
+
+        [[-0.75008565, -1.1097703 , -0.09971222, ..., -0.6199668 ,
+          -0.7556727 , -0.40945974],
+         [ 1.9973428 , -1.052906  ,  0.42947632, ...,  0.04156437,
+           0.29823357, -0.08381346],
+         [-0.6663041 , -1.1808735 ,  0.46605667, ..., -0.37922055,
+          -0.37701553,  1.0170003 ],
+         ...,
+         [ 0.44289246,  0.3291084 ,  0.7232677 , ..., -0.41136402,
+          -0.40603006,  0.01695305],
+         [ 0.9844309 ,  0.24802983, -0.894051  , ...,  0.7272958 ,
+           1.5107719 , -1.7571547 ],
+         [ 0.9768729 , -0.65248245, -1.0551382 , ..., -0.23309635,
+           0.51595753, -0.3045723 ]],
+
+        ...,
+
+        [[ 1.6996696 ,  0.24876764, -0.069411  , ..., -0.6873886 ,
+          -0.44128725, -0.28018996],
+         [ 0.3223422 ,  1.7259015 , -2.0022466 , ...,  0.18772966,
+           0.4808509 ,  0.86058146],
+         [ 1.7494658 , -0.9631199 ,  0.6559534 , ..., -0.8845743 ,
+          -0.49275845,  0.21462186],
+         ...,
+         [-0.9671174 ,  0.45375896,  1.0692004 , ..., -0.39048076,
+          -0.42492673,  2.2005825 ],
+         [-0.4250494 ,  1.3929827 , -0.71620893, ..., -1.3019658 ,
+           1.238841  ,  1.3913113 ],
+         [-0.78816897,  1.3312621 , -1.0969547 , ...,  1.513282  ,
+          -0.13862251, -0.6573715 ]],
+
+        [[ 0.36436018, -0.01082903,  0.35863578, ...,  0.576331  ,
+           0.48520112, -0.28806406],
+         [-0.4885042 , -1.230166  ,  1.4846122 , ...,  1.6849259 ,
+           0.7840235 ,  0.4321763 ],
+         [ 1.3465198 , -0.9168444 , -0.62516004, ..., -1.3412211 ,
+          -0.13852546,  0.79091173],
+         ...,
+         [-1.2139064 , -0.81333905,  0.66940755, ...,  0.3062127 ,
+          -0.37803304,  1.4200659 ],
+         [ 0.924879  ,  0.96742487,  0.19433938, ..., -0.744468  ,
+          -0.09109184,  1.0815846 ],
+         [ 0.5200551 , -2.0588763 , -0.03869135, ...,  0.5831866 ,
+          -1.9514668 ,  0.08410565]],
+
+        [[ 1.2990133 ,  1.4528428 , -0.17309146, ..., -0.42987746,
+           0.3912866 ,  2.7769985 ],
+         [-0.9865986 , -1.5649054 , -0.01788504, ...,  0.31901205,
+           0.47645843,  0.51785296],
+         [ 0.7717299 , -0.11610593, -0.5792499 , ...,  0.64214975,
+          -1.9120461 , -0.01075933],
+         ...,
+         [ 0.12491275, -0.03632854,  1.6196492 , ...,  1.6607761 ,
+          -1.2158486 , -1.8494431 ],
+         [-1.5183092 ,  0.391969  ,  0.44651654, ..., -0.7598538 ,
+           0.26166156, -0.09625392],
+         [-0.2642026 ,  3.4227366 ,  0.33411855, ..., -1.0332291 ,
+          -0.7188787 ,  0.517222  ]]]], dtype=float32)}, 'max_percentile': 1.0}, 'hbdk_dict': {'hbdk_pass_through_params': '--core-num 1 --fast --O3', 'input-source': {'in': 'ddr', '_default_value': 'ddr'}}, 'node_dict': {}, 'check_mode': False}
+2022-11-06 17:23:37,775 file: build.py func: build line No: 37 [Sun Nov  6 17:23:37 2022] Start to Horizon NN Model Convert.
+2022-11-06 17:23:37,775 file: dict_parser.py func: dict_parser line No: 32 Parsing the input parameter:{'in': {'input_shape': [1, 30, 20, 10], 'original_input_layout': 'NCHW'}}
+2022-11-06 17:23:37,775 file: build.py func: build line No: 250 Parsing the calibration parameter
+2022-11-06 17:23:37,775 file: dict_parser.py func: dict_parser line No: 523 Parsing the hbdk parameter:{'hbdk_pass_through_params': '--core-num 1 --fast --O3', 'input-source': {'in': 'ddr', '_default_value': 'ddr'}}
+2022-11-06 17:23:37,775 file: build.py func: build line No: 146 HorizonNN version: 0.14.0
+2022-11-06 17:23:37,775 file: build.py func: build line No: 150 HBDK version: 3.37.2
+2022-11-06 17:23:37,775 file: build.py func: build line No: 37 [Sun Nov  6 17:23:37 2022] Start to parse the onnx model.
+2022-11-06 17:23:37,776 file: onnx_parser.py func: onnx_parser line No: 191 Input ONNX model infomation:
+ONNX IR version:          7
+Opset version:            11
+Producer:                 pytorch1.10
+Domain:                   none
+Input name:               in, [1, 30, 20, 10]
+Output name:              out, [1, 20, 20, 10]
+2022-11-06 17:23:37,783 file: build.py func: build line No: 40 [Sun Nov  6 17:23:37 2022] End to parse the onnx model.
+2022-11-06 17:23:37,784 file: build.py func: build line No: 282 Model input names: ['in']
+2022-11-06 17:23:37,784 file: build.py func: build line No: 546 Saving the original float model: demo_original_float_model.onnx.
+2022-11-06 17:23:37,784 file: build.py func: build line No: 37 [Sun Nov  6 17:23:37 2022] Start to optimize the model.
+2022-11-06 17:23:37,897 file: build.py func: build line No: 40 [Sun Nov  6 17:23:37 2022] End to optimize the model.
+2022-11-06 17:23:37,897 file: build.py func: build line No: 562 Saving the optimized model: demo_optimized_float_model.onnx.
+2022-11-06 17:23:37,897 file: build.py func: build line No: 37 [Sun Nov  6 17:23:37 2022] Start to calibrate the model.
+2022-11-06 17:23:37,897 file: calibration_data_set.py func: calibration_data_set line No: 67 There are 1 samples in the calibration data set.
+2022-11-06 17:23:37,898 file: default_calibrater.py func: default_calibrater line No: 147 Run calibration model with default calibration method.
+2022-11-06 17:23:37,921 file: default_calibrater.py func: default_calibrater line No: 171 Select max method.
+2022-11-06 17:23:37,925 file: build.py func: build line No: 40 [Sun Nov  6 17:23:37 2022] End to calibrate the model.
+2022-11-06 17:23:37,925 file: build.py func: build line No: 37 [Sun Nov  6 17:23:37 2022] Start to quantize the model.
+2022-11-06 17:23:37,932 file: build.py func: build line No: 40 [Sun Nov  6 17:23:37 2022] End to quantize the model.
+2022-11-06 17:23:37,932 file: build.py func: build line No: 576 Saving the quantized model: demo_quantized_model.onnx.
+2022-11-06 17:23:37,932 file: build.py func: build line No: 37 [Sun Nov  6 17:23:37 2022] Start to compile the model with march bernoulli2.
+2022-11-06 17:23:37,940 file: hybrid_build.py func: hybrid_build line No: 149 Compile submodel: torch-jit-export_subgraph_0
+2022-11-06 17:23:37,941 file: hbdk_cc.py func: hbdk_cc line No: 95 hbdk-cc parameters:['--core-num', '1', '--fast', '--O3', '--input-layout', 'NHWC', '--output-layout', 'NCHW', '--input-source', 'ddr']
+2022-11-06 17:23:37,941 file: hbdk_cc.py func: hbdk_cc line No: 96 hbdk-cc command used:hbdk-cc -f hbir -m /tmp/tmpwr0op5ws/torch-jit-export_subgraph_0.bin -o /tmp/tmpwr0op5ws/torch-jit-export_subgraph_0.hbm --march bernoulli2 --progressbar --core-num 1 --fast --O3 --input-layout NHWC --output-layout NCHW --input-source ddr
+2022-11-06 17:23:37,968 file: tool_utils.py func: tool_utils line No: 293 INFO: "-j" or "--jobs" is not specified, launch 8 threads for optimization
+2022-11-06 17:23:37,987 file: tool_utils.py func: tool_utils line No: 293 consumed time 0.0195618
+2022-11-06 17:23:38,015 file: tool_utils.py func: tool_utils line No: 293 FPS=29547.33, latency = 33.8 us   (see torch-jit-export_subgraph_0.html)
+2022-11-06 17:23:38,041 file: build.py func: build line No: 40 [Sun Nov  6 17:23:38 2022] End to compile the model with march bernoulli2.
+2022-11-06 17:23:38,042 file: node_info.py func: node_info line No: 54 The converted model node information:
+================================================================================
+Node    ON   Subgraph  Type              Cosine Similarity  Threshold           
+--------------------------------------------------------------------------------
+Conv_0  BPU  id(0)     HzSQuantizedConv  0.999959           3.773954
+2022-11-06 17:23:38,042 file: build.py func: build line No: 635 The quantify model output:
+=========================================================================
+Node    Cosine Similarity  L1 Distance  L2 Distance  Chebyshev Distance  
+-------------------------------------------------------------------------
+Conv_0  0.999959           0.004282     0.000085     0.019052
+2022-11-06 17:23:38,042 file: build.py func: build line No: 40 [Sun Nov  6 17:23:38 2022] End to Horizon NN Model Convert.
+2022-11-06 17:23:38,043 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 680 start convert to *.bin file....
+2022-11-06 17:23:38,067 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3932 ONNX model output num : 1
+2022-11-06 17:23:38,067 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3797 ############# model deps info #############
+2022-11-06 17:23:38,067 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3799 hb_mapper version   : 1.9.9
+2022-11-06 17:23:38,067 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3802 hbdk version        : 3.37.2
+2022-11-06 17:23:38,067 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3804 hbdk runtime version: 3.14.14
+2022-11-06 17:23:38,067 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3807 horizon_nn version  : 0.14.0
+2022-11-06 17:23:38,068 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3810 ############# model_parameters info #############
+2022-11-06 17:23:38,068 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3816 onnx_model          : /home/xcsong/workspace/toolchain_pkg/demo/demo.onnx
+2022-11-06 17:23:38,068 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3817 BPU march           : bernoulli2
+2022-11-06 17:23:38,068 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3818 layer_out_dump      : False
+2022-11-06 17:23:38,068 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3819 log_level           : DEBUG
+2022-11-06 17:23:38,068 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3820 working dir         : /home/xcsong/workspace/toolchain_pkg/demo/hb_makertbin_output
+2022-11-06 17:23:38,068 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3821 output_model_file_prefix: demo
+2022-11-06 17:23:38,068 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3835 ############# input_parameters info #############
+2022-11-06 17:23:38,068 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3852 ------------------------------------------
+2022-11-06 17:23:38,068 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3854 ---------input info : in ---------
+2022-11-06 17:23:38,068 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3855 input_name          : in
+2022-11-06 17:23:38,069 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3856 input_type_rt       : featuremap
+2022-11-06 17:23:38,069 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3859 input_space&range   : regular
+2022-11-06 17:23:38,069 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3860 input_layout_rt     : NCHW
+2022-11-06 17:23:38,069 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3861 input_type_train    : featuremap
+2022-11-06 17:23:38,069 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3862 input_layout_train  : NCHW
+2022-11-06 17:23:38,069 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3863 norm_type           : no_preprocess
+2022-11-06 17:23:38,069 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3864 input_shape         : 1x30x20x10
+2022-11-06 17:23:38,069 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3872 cal_data_dir        : /home/xcsong/workspace/toolchain_pkg/demo/calibration_data
+2022-11-06 17:23:38,069 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3873 ---------input info : in end -------
+2022-11-06 17:23:38,069 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3874 ------------------------------------------
+2022-11-06 17:23:38,069 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3876 ############# calibration_parameters info #############
+2022-11-06 17:23:38,070 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3877 preprocess_on       : False
+2022-11-06 17:23:38,070 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3878 calibration_type:   : default
+2022-11-06 17:23:38,070 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3879 cal_data_type       : N/A
+2022-11-06 17:23:38,070 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3885 max_percentile      : 1.0
+2022-11-06 17:23:38,070 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3906 ############# compiler_parameters info #############
+2022-11-06 17:23:38,070 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3910 hbdk_pass_through_params: --core-num 1 --fast --O3
+2022-11-06 17:23:38,070 file: onnx2horizonrt.py func: onnx2horizonrt line No: 3910 input-source        : {'in': 'ddr', '_default_value': 'ddr'}
+2022-11-06 17:23:38,071 file: layout_util.py func: layout_util line No: 13 set_featuremap_layout start
+2022-11-06 17:23:38,071 file: layout_util.py func: layout_util line No: 19 type item 0, featuremap
+2022-11-06 17:23:38,071 file: layout_util.py func: layout_util line No: 64 The model's No.0 input OP is Transpose NCHW2NHWC. No action needed
+2022-11-06 17:23:38,071 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 841 Convert to runtime bin file sucessfully!
+2022-11-06 17:23:38,071 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 842 End Model Convert
